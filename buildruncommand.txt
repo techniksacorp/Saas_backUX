@@ -1,0 +1,3 @@
+pyinstaller --windowed --name="SACorpSaas" --icon=IconeMACOS.icns main.py
+
+pyinstaller --windowed --name="SACorpSaas" --icon=IconeMACOS.icns --add-data="assets:assets" main.py

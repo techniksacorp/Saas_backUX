@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>SACorpSaas</string>
+	<key>CFBundleExecutable</key>
+	<string>SACorpSaas</string>
+	<key>CFBundleIconFile</key>
+	<string>generated-0d6440ac394f8df32e88c130069a00c0b1a0744cf2c3957a52196ebc6a9ad706.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>SACorpSaas</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SACorpSaas</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.0</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>
