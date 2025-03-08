@@ -26,12 +26,9 @@ class MainWindow(QWidget):
 
         # Détecter si l'application est compilée
         if getattr(sys, 'frozen', False):
-            print("yes")
             assets_path = os.path.join(os.path.dirname(sys.executable), "..", "Resources", "assets","font")
             font_path = assets_path #os.path.join(assets_path, "font/Gilroy-Regular.ttf")
-            print(font_path)
         else:
-            print("no")
             font_path = os.path.abspath("assets/font/")
         
 
@@ -39,20 +36,17 @@ class MainWindow(QWidget):
         font_families = set()
         for font_file in font_files:
             font_path_temp = os.path.join(font_path, font_file)  # 🔹 Mets le bon chemin
-            print(font_path)
             font_id = QFontDatabase.addApplicationFont(font_path_temp)
 
             if font_id == -1:
-                print(f"❌ Erreur : Impossible de charger {font_file}")
+                print(f"Erreur : Impossible de charger {font_file}")
             else:
                 family = QFontDatabase.applicationFontFamilies(font_id)[0]
                 font_families.add(family)
-                print(f"✅ Police chargée : {family}")
 
-        # ✅ Vérifier la famille de police trouvée
+        # Vérifier la famille de police trouvée
         if font_families:
             self.main_font_family = list(font_families)[0]  # 🔹 On prend la première famille
-            print(f"✅ Utilisation de la famille : {self.main_font_family}")
         
 
         self.font_regular = QFont(self.main_font_family, 12)
@@ -64,16 +58,7 @@ class MainWindow(QWidget):
         self.setFont(self.font_thin)
 
 
-        
-        # font_id = QFontDatabase.addApplicationFont(font_path)
-        # if font_id == -1:
-        #     print("❌ Erreur : Impossible de charger la police")
-        # else:
-        #     font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
-        #     print(f"✅ Police chargée : {font_family}")
-        #     self.setFont(QFont(font_family, 12))  # Taille 12 par défaut pour toute l'application
 
-        
 
         # Création d'un QLabel pour l'image
         self.label = QLabel(self)
@@ -85,8 +70,9 @@ class MainWindow(QWidget):
         self.add_title(layout)
         self.add_loading_indicator(layout)
         self.add_accounts_dropdown(layout)
-        self.add_accounts_info(layout)
-        self.add_secondary_dropdown(layout)
+        self.add_account_info(layout)
+        self.add_project_dropdown(layout)
+        self.add_project_info(layout)
         self.add_submit_button(layout)
 
         self.setLayout(layout)
@@ -96,6 +82,7 @@ class MainWindow(QWidget):
 
         # Connecter le premier dropdown au changement
         self.accounts_dropdown.currentIndexChanged.connect(self.controller.update_projects_options)
+        self.projects_dropdown.currentIndexChanged.connect(self.controller.update_groupcampaigns_options)
 
     def add_title(self, layout):
         """Ajoute le titre à la mise en page."""
@@ -113,7 +100,7 @@ class MainWindow(QWidget):
         self.accounts_dropdown = QComboBox()
         layout.addWidget(self.accounts_dropdown)
 
-    def add_accounts_info(self, layout):
+    def add_account_info(self, layout):
             self.account_image = QLabel(self)
             self.account_image.setScaledContents(False)   # Ajuste l'image à la taille du QLabel
 
@@ -129,7 +116,7 @@ class MainWindow(QWidget):
 
 
 
-    def add_secondary_dropdown(self, layout):
+    def add_project_dropdown(self, layout):
         """Ajoute le deuxième champ de sélection à la mise en page."""
         self.label2 = QLabel("Options disponibles :")
         self.label2.setFont(QFont("Arial", 12))
@@ -138,6 +125,22 @@ class MainWindow(QWidget):
         self.projects_dropdown = QComboBox()
         self.projects_dropdown.setEnabled(False)  # Désactiver initialement
         layout.addWidget(self.projects_dropdown)
+
+    def add_project_info(self, layout):
+        self.project_image = QLabel(self)
+        self.project_image.setScaledContents(False)   # Ajuste l'image à la taille du QLabel
+
+        self.project_image.setGeometry(50, 50, 50, 50)
+        self.project_image.setFixedSize(50, 50)
+        self.project_image.setStyleSheet("""
+            
+        """)
+        self.project_image.setScaledContents(True)
+        
+        self.project_image.setEnabled(False)
+        layout.addWidget(self.project_image)
+
+
 
     def add_submit_button(self, layout):
         """Ajoute le bouton de soumission à la mise en page."""

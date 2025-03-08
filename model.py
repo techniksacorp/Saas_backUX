@@ -6,6 +6,8 @@ class DatabaseModel:
         self.connection = self.initialize_connection()
         self.route_getaccounts = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/account"
         self.route_getprojects = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/project"
+        self.route_getgroupcampaigns = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/groupcampaign"
+
 
     def initialize_connection(self):
         """Initialise la connexion à la base de données."""
@@ -37,11 +39,27 @@ class DatabaseModel:
         projects_data = []
 
         for project in response.json():
+            project_logo = project.get('account_logo', {})
+            project_logo_url = project_logo['url'] if project_logo and 'url' in project_logo else ''
+            projects_data.append((project['id'], project['Project_Name'],project_logo_url))
+
+        return projects_data
+    
+    def fetch_groupcampaigns(self, project_id, account_id):
+        """Récupère les comptes de la base de données."""
+        data = {
+            "account_id": account_id,
+            "project_id": project_id
+        }
+        response = requests.get(self.route_getprojects, params=data)
+        # print( response.json() )
+        projects_data = []
+
+        for project in response.json():
             projects_data.append((project['id'], project['Project_Name']))
 
         return projects_data
-
-        
+       
 
 
 

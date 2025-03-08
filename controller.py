@@ -24,7 +24,6 @@ class DataController:
 
     def load_initial_options(self):
         """Charge les options initiales pour le premier champ de sélection."""
-        print("test")
         accounts_data = self.model.fetch_accounts()
 
 
@@ -49,13 +48,12 @@ class DataController:
 
             # Nettoyer et mettre à jour le deuxième menu
             self.ui.projects_dropdown.clear()
-            for item_id, name in new_options:
-                self.ui.projects_dropdown.addItem(name, item_id)
+            for item_id, name, project_logo_url in new_options:
+                self.ui.projects_dropdown.addItem(name, (item_id,project_logo_url))
         else:
             self.ui.projects_dropdown.clear()
-        
-        print(account_logo_url)
-        print(bool(account_logo_url))
+
+
         if account_logo_url:
             pixmap = load_image_from_url(account_logo_url)
             if pixmap:
@@ -70,6 +68,45 @@ class DataController:
             self.ui.account_image.clear()  # Supprime l'image si erreur
         # self.ui.account_image.setPixmap(QPixmap(account_logo_url))
         # self.ui.account_image.setEnabled(bool(account_logo_url))
+    
+    
+    def update_groupcampaigns_options(self):
+        """Met à jour le deuxième champ en fonction de la sélection du premier."""
+        selected_account_id, account_logo_url = self.ui.accounts_dropdown.currentData()
+        selected_project_id, project_logo_url = self.ui.projects_dropdown.currentData()
+        # self.ui.groupcampaigns_dropdown.setEnabled(bool(selected_project_id))  # Activer/désactiver le deuxième champ
+        print("test1")
+
+        if selected_project_id:
+            print("test2")
+            new_options = self.model.fetch_groupcampaigns(selected_project_id,selected_account_id)
+
+        #     # Nettoyer et mettre à jour le deuxième menu
+        #     self.ui.groupcampaigns_dropdown.clear()
+        #     for item_id, name in new_options:
+        #         self.ui.groupcampaigns_dropdown.addItem(name, item_id)
+        # else:
+        #     self.ui.groupcampaigns_dropdown.clear()
+
+
+        if project_logo_url:
+            print("test3")
+            pixmap = load_image_from_url(project_logo_url)
+            if pixmap:
+                # Redimensionner l'image
+                pixmap = pixmap.scaled(self.ui.project_image.width(), self.ui.project_image.height(),Qt.AspectRatioMode.KeepAspectRatioByExpanding,Qt.TransformationMode.SmoothTransformation)
+                self.ui.project_image.setPixmap(pixmap)
+                self.ui.project_image.setEnabled(True)
+                
+            else:
+                self.ui.project_image.clear()
+        else:
+            self.ui.project_image.clear()  # Supprime l'image si erreur
+        # self.ui.account_image.setPixmap(QPixmap(account_logo_url))
+        # self.ui.account_image.setEnabled(bool(account_logo_url))
+
+
+
 
     def send_form_data_to_db(self, client, option):
         """Envoie les données du formulaire à la base de données."""
