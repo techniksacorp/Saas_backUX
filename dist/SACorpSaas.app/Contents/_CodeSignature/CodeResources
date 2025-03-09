@@ -372,9 +372,25 @@
 		<data>
 		YveJ6PoME8X9T+JQV2v0WwfIV4E=
 		</data>
+		<key>Resources/assets/IconeMACOS.icns</key>
+		<data>
+		ypZkf6U6B3cNualReYR+yHujhCI=
+		</data>
+		<key>Resources/assets/IconeMACOS2.icns</key>
+		<data>
+		tEoMYaa8aPfLmAVPcjZiF9P9uy8=
+		</data>
+		<key>Resources/assets/IconeMACOS3.icns</key>
+		<data>
+		zEDUhl9LzmjryE+YiO4uDQsKTY4=
+		</data>
 		<key>Resources/assets/IconeMACOS_blanc.png</key>
 		<data>
 		W2Ih5jL2tOH4Oixtu6mF9RNIi3g=
+		</data>
+		<key>Resources/assets/IconeMACOS_noir.png</key>
+		<data>
+		exD8kTir90Il9RPXqUrv12WJuY8=
 		</data>
 		<key>Resources/assets/font/Gilroy-Bold.ttf</key>
 		<data>
@@ -388,9 +404,53 @@
 		<data>
 		Q7MbMMNhAuWqiGg0+uqeJcNfveY=
 		</data>
+		<key>Resources/assets/font/Gilroy-Thin.ttf</key>
+		<data>
+		x/WtdYp3aNLpz5K9uiHhpxIV6yo=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_128x128.png</key>
+		<data>
+		qSCbknjmFmC5jnjGe116KVWh9d8=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_128x128@2x.png</key>
+		<data>
+		TOBTB7YcOu2S36OTCkNobIVAOQA=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_16x16.png</key>
+		<data>
+		tCQWZXpIiItzNw8AUb5zAwnV4Og=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_16x16@2x.png</key>
+		<data>
+		MnrH3JzsGsAbehwpadrnugnkXe4=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_256x256.png</key>
+		<data>
+		TOBTB7YcOu2S36OTCkNobIVAOQA=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_256x256@2x.png</key>
+		<data>
+		xeWXNsR4az7SVctq9n06ApqcvaU=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_32x32.png</key>
+		<data>
+		MnrH3JzsGsAbehwpadrnugnkXe4=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_32x32@2x.png</key>
+		<data>
+		J0WN7gcq4FhLhIej3VQzaz3iyGY=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_512x512.png</key>
+		<data>
+		xeWXNsR4az7SVctq9n06ApqcvaU=
+		</data>
+		<key>Resources/assets/myicon.iconset/icon_512x512@2x.png</key>
+		<data>
+		exD8kTir90Il9RPXqUrv12WJuY8=
+		</data>
 		<key>Resources/base_library.zip</key>
 		<data>
-		o3IOWHWMzHYNsP1qmdjc//M5puc=
+		ilUWyXGd5V4nzuo1gGhehu8PV+I=
 		</data>
 		<key>Resources/certifi/cacert.pem</key>
 		<data>
@@ -402,7 +462,7 @@
 		</data>
 		<key>Resources/generated-0d6440ac394f8df32e88c130069a00c0b1a0744cf2c3957a52196ebc6a9ad706.icns</key>
 		<data>
-		QrmykfavHttGXNgF9zBBNuIqFFQ=
+		GAl8DWSgSlOHpYER8vnI64YCn0Q=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1919,11 +1979,39 @@
 			<key>symlink</key>
 			<string>PyQt6/Qt6/lib/QtWidgets.framework/Versions/A/QtWidgets</string>
 		</dict>
+		<key>Resources/assets/IconeMACOS.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			r4dZ1LUiN4sTjLH0izgXmrR99jTXT7mC8vbVKjbC/TM=
+			</data>
+		</dict>
+		<key>Resources/assets/IconeMACOS2.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			j/uL9Lg9V5TPgIhqZ+KcSRWNOPu2HTsPTyr+JBFdwm8=
+			</data>
+		</dict>
+		<key>Resources/assets/IconeMACOS3.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kFuTBmmZiYNrMzK7JppZu+8iupg0Ek98hYs1Lm5is58=
+			</data>
+		</dict>
 		<key>Resources/assets/IconeMACOS_blanc.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			7CIoJFUNdCR71MxwY/QoC63ZnJpJaxM8girDTdvWULw=
+			</data>
+		</dict>
+		<key>Resources/assets/IconeMACOS_noir.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UFfi396FnqguBFBpKqSEwAuyfqEFU0CmarkSffEMJaM=
 			</data>
 		</dict>
 		<key>Resources/assets/font/Gilroy-Bold.ttf</key>
@@ -1947,11 +2035,88 @@
 			QxLP4xQDdGbdrQ1qExDlXTF/Mg6AO+RmRkIzY7Y7tCY=
 			</data>
 		</dict>
+		<key>Resources/assets/font/Gilroy-Thin.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BBY7+SssSmbr/YjLrssElfSNwoG5AaX8PiOnWoan3PI=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_128x128.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OzEsL4XuE0bCAkvhWsD1msdTeDuncikdyLK+A+1Iab8=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_128x128@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yY2V2GFKOfOSmPHrpPej8/NEO17u60ToOibYfjLAT0g=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_16x16.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7B5ZJhK794T9MfXh5M9XRJXqTdKHQDMwi+4pTX5RECg=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_16x16@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Lx1M/bRk2h+1jZGpnuRRdVj+w7lG51wz538Q5VQkgTQ=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_256x256.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yY2V2GFKOfOSmPHrpPej8/NEO17u60ToOibYfjLAT0g=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_256x256@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aWCNkF+G2ytSJaw9VwhXjAV/zzuYQ+0vyMWvk/ogyis=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_32x32.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Lx1M/bRk2h+1jZGpnuRRdVj+w7lG51wz538Q5VQkgTQ=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_32x32@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uhVO7RleNkSZw04oh42ZKqviMfnVhsp3Wh9bO+0K1kc=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_512x512.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aWCNkF+G2ytSJaw9VwhXjAV/zzuYQ+0vyMWvk/ogyis=
+			</data>
+		</dict>
+		<key>Resources/assets/myicon.iconset/icon_512x512@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UFfi396FnqguBFBpKqSEwAuyfqEFU0CmarkSffEMJaM=
+			</data>
+		</dict>
 		<key>Resources/base_library.zip</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wgIfw/fcIIaxg4CbbXYqKdf5KEONBOa5y5Pm0Lh6zyo=
+			qAF+CkhDLZLB8+lxTf7QVdJBdYDnxNrafi1cyzKwJdQ=
 			</data>
 		</dict>
 		<key>Resources/certifi/cacert.pem</key>
@@ -1977,7 +2142,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t1JM4l/0gXIQsExnW7qVgmKl8ozawYaeAqxHjgE6irI=
+			CceaJpXqfgwOC9kO7mPbrER3J6s2BX/6vv+55Zxh0y0=
 			</data>
 		</dict>
 		<key>Resources/lib-dynload</key>

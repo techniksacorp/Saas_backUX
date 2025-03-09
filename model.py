@@ -1,5 +1,6 @@
 import time
 import requests
+from datetime import datetime,timezone
 
 class DatabaseModel:
     def __init__(self):
@@ -7,6 +8,8 @@ class DatabaseModel:
         self.route_getaccounts = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/account"
         self.route_getprojects = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/project"
         self.route_getgroupcampaigns = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/groupcampaign"
+
+        self.route_postproject = "https://x6ny-u01k-kxvn.p7.xano.io/api:2sk9qabc/post_project"
 
 
     def initialize_connection(self):
@@ -39,9 +42,10 @@ class DatabaseModel:
         projects_data = []
 
         for project in response.json():
-            project_logo = project.get('account_logo', {})
+            project_logo = project.get('logo', {})
             project_logo_url = project_logo['url'] if project_logo and 'url' in project_logo else ''
             projects_data.append((project['id'], project['Project_Name'],project_logo_url))
+            
 
         return projects_data
     
@@ -51,14 +55,20 @@ class DatabaseModel:
             "account_id": account_id,
             "project_id": project_id
         }
-        response = requests.get(self.route_getprojects, params=data)
+        response = requests.get(self.route_getgroupcampaigns, params=data)
         # print( response.json() )
-        projects_data = []
+        groupscampaigns_data = []
 
-        for project in response.json():
-            projects_data.append((project['id'], project['Project_Name']))
-
-        return projects_data
+        for groupcampaigns in response.json():
+            groupscampaigns_data.append([
+                groupcampaigns['id'],# ID du groupe de campagnes
+                datetime.fromtimestamp(groupcampaigns['created_at'] / 1000, tz=timezone.utc).strftime('%Y-%m-%d') , # Date de creation
+                groupcampaigns['groupname'],# Nom du groupe
+                groupcampaigns['nb_campain'],# Nombre de campagnes
+                groupcampaigns['total_budget_margin'],  # Budget total avec marge
+                groupcampaigns['total_budget_nomargin'] # Budget total sans marge
+            ])
+        return groupscampaigns_data
        
 
 
@@ -79,3 +89,35 @@ class DatabaseModel:
         # Simuler une réussite de l'envoi des données
         return True
 
+    def post_project(self, account_id, project_name, logo_path):
+        
+        # Préparer les données du formulaire
+        data = {
+            "account_id": account_id,
+            "Project_Name": project_name,
+            'logo': None
+        }
+        
+        # Vérifier si un logo est fourni
+        files = {"image": open(logo_path, "rb")} if logo_path else None
+        
+        
+        try:
+            response = requests.post(self.route_postproject, data=data, files=files)
+            response_data = response.json()  # Convertir la réponse en JSON
+            print(response_data)
+
+            if response.status_code == 200:
+                if response_data == "Project name already exist":
+                    return False, "Le projet existe déjà."
+                print("Projet ajouté avec succès :", response_data)
+                return True, response_data
+            else:
+                print("Erreur :", response_data)
+                return False, response_data
+            
+            
+
+        except Exception as e:
+            print("Erreur de connexion :", e)
+            return None
